@@ -56,3 +56,4 @@ class MoviesController < ApplicationController
     params.require(:movie).permit(:title, :overview, :poster_url, :rating)
   end
 end
+
