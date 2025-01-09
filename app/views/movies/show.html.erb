@@ -1,0 +1,9 @@
+<h1><%= @movie.title %></h1>
+
+<p><strong>Overview:</strong> <%= @movie.overview %></p>
+<p><strong>Rating:</strong> <%= @movie.rating %></p>
+<p><strong>Poster:</strong> <%= image_tag @movie.poster_url if @movie.poster_url.present? %></p>
+
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Delete', movie_path(@movie), method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back to Movies', movies_path %>

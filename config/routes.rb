@@ -8,3 +8,17 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 end
+
+Rails.application.routes.draw do
+  # Routes for Movies
+  resources :movies, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+
+  # Routes for Lists
+  resources :lists do
+    # Nested route for Bookmarks inside Lists
+    resources :bookmarks, only: [:create, :destroy]
+  end
+
+  # Optional: Root route (homepage)
+  root "movies#index"
+end
